@@ -11,7 +11,7 @@ int main(){
     short age;
     bool isAdult;
     unsigned int zipcode;
-    float wage;
+    float wage = 0;
     short daysWorked;
     float hoursWorkedPerDay[7];
     const float TAX = 0.1f;
@@ -30,7 +30,7 @@ int main(){
     cin >> zipcode;
 
     cout << "Enter hourly wage: ";
-    cin >> name;
+    cin >> wage;
 
     cout << "Enter number of days worked (max 7): ";
     cin >> daysWorked;
@@ -38,7 +38,7 @@ int main(){
     float totalHours = 0;
 
     for (int i = 0; i < daysWorked; i++) {
-        cout << "Enter hours worked for " << i << 1 << ": ";
+        cout << "Enter hours worked for " << i+1 << ": ";
         cin >> hoursWorkedPerDay[i];
 
         totalHours += hoursWorkedPerDay[i];
