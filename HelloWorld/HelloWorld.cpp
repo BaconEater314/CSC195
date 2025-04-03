@@ -13,10 +13,14 @@ int main() {
     Student student("Nick");
     student.write();
 
-    unsigned int i = -23;
+    unsigned int i = 78;
+    cout << i << endl;
+    cout << (char)i << endl;
+
+    char c = 'A';
+    cout << &c << endl;
 
     cout << "Hello, World!" << endl;
     cout << "Git is now tracking this project!" << endl;
     
 }
-
