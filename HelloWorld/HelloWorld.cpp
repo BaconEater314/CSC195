@@ -13,6 +13,8 @@ int main() {
     Student student("Nick");
     student.write();
 
+    unsigned int i = -23;
+
     cout << "Hello, World!" << endl;
     cout << "Git is now tracking this project!" << endl;
     
