@@ -3,10 +3,15 @@
 #include <iostream>
 using namespace std;
 
+
 using age_t = unsigned short;
 
 class Human {
 public:
+    enum class type : unsigned char {
+        STUDENT,
+        NOT_STUDENT
+    };
     Human() {
         cout << "Human constructor" << endl;
         count++;
@@ -32,7 +37,7 @@ public:
     ~Human() {
         cout << "Human destructor" << endl;
     }
-private:
+protected:
     string name;
     unsigned short age = 0;
     static int count;

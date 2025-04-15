@@ -16,6 +16,8 @@ public:
         cout << "student constructor" << endl;
     }
 
+    type getType() { return type::STUDENT; }
+
     void setGPA(float gpa) { gpa = gpa; }
     float getGPA() { return gpa; }
 private:
