@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
@@ -29,6 +30,8 @@ public:
         cout << age << endl;
     }
 
+    virtual type getType() = 0;
+
     static int getCount() { return count; }
 
     string getName() { return name; }
@@ -37,6 +40,9 @@ public:
     ~Human() {
         cout << "Human destructor" << endl;
     }
+
+    vector<Human> m_humans = vector<>;
+   
 protected:
     string name;
     unsigned short age = 0;

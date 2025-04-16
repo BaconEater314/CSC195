@@ -9,3 +9,7 @@ void func() {
 void setAge(age_t age) {
 	age = age;
 }
+//void Human::Read() {
+//	cout << "Enter name: " << endl;
+//	
+//}
