@@ -41,11 +41,15 @@ public:
         cout << "Human destructor" << endl;
     }
 
-    vector<Human> m_humans = vector<>;
+    //vector<Human> m_humans = vector<>;
    
-protected:
     string name;
+
+    virtual void read();
+    virtual void write();
     unsigned short age = 0;
+
+protected:
     static int count;
     static const float tax;
     void setAge(age_t age) { age = age; }
