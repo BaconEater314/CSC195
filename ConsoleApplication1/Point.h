@@ -35,6 +35,13 @@ namespace math {
 			return ostream;
 		}
 
+		friend stdd::istream& operator >> (std::ostream& istream, Point<T>& p) {
+			istream >> p.m_x;
+			istream >> p.m_y;
+
+			return istream;
+		}
+
 		T getX() { return m_x; }
 		T getY() { return m_y; }
 
