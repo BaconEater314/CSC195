@@ -8,35 +8,27 @@ namespace mathlib {
 	class Fraction {
 	public:
         Fraction(T numerator, T denominator) {
-			m_numerator = numerator;
+            m_numerator = numerator ;
 			if (denominator == 0) {
 				m_denominator = 1;
 			}else {
-				m_denominator = denominator;
+                m_denominator = denominator ;
 			}
 		}
         Fraction(){}
 
         //simple math
         Fraction<T> operator + (const Fraction<T> other) const {
-            T top = m_numerator + other.m_numerator;
-            T bottom = m_denominator + other.m_denominator;
-            return Fraction<T>(top/bottom);
+            return Fraction<T>(m_numerator + other.m_numerator, m_denominator + other.m_denominator);
         }
         Fraction<T> operator - (const Fraction<T> other) const {
-            T top = m_numerator - other.m_numerator;
-            T bottom = m_denominator - other.m_denominator;
-            return Fraction<T>(top / bottom);   
+            return Fraction<T>(m_numerator - other.m_numerator, m_denominator - other.m_denominator);
         }
         Fraction<T> operator * (const Fraction<T> other) const {
-            T top = m_numerator * other.m_numerator;
-            T bottom = m_denominator * other.m_denominator;
-            return Fraction<T>(top / bottom);
+            return Fraction<T>(m_numerator * other.m_numerator, m_denominator * other.m_denominator);
         }
         Fraction<T> operator / (const Fraction<T> other) const {
-            T top = m_numerator / other.m_numerator;
-            T bottom = m_denominator / other.m_denominator;
-            return Fraction<T>(top / bottom);
+            return Fraction<T>(m_numerator / other.m_numerator, m_denominator / other.m_denominator);
         }
 
         //operations for comparing
@@ -67,36 +59,12 @@ namespace mathlib {
         }
 
         //comparing
-        bool operator == (const Fraction<T> other) const {
-            T fraction1 = simplify(m_numerator, m_denominator);
-            T fraction2 = simplify(other.m_numerator, other.m_denominator);
-            return (fraction1 == fraction2);
-        }
-        bool operator != (const Fraction<T> other) const {
-            T fraction1 = simplify(m_numerator, m_denominator);
-            T fraction2 = simplify(other.m_numerator, other.m_denominator);
-            return (fraction1 != fraction2);
-        }
-        bool operator >= (const Fraction<T> other) const {
-            T fraction1 = simplify(m_numerator, m_denominator);
-            T fraction2 = simplify(other.m_numerator, other.m_denominator);
-            return (fraction1 >= fraction2);
-        }
-        bool operator <= (const Fraction<T> other) const {
-            T fraction1 = simplify(m_numerator, m_denominator);
-            T fraction2 = simplify(other.m_numerator, other.m_denominator);
-            return (fraction1 <= fraction2);
-        }
-        bool operator > (const Fraction<T> other) const {
-            T fraction1 = simplify(m_numerator, m_denominator);
-            T fraction2 = simplify(other.m_numerator, other.m_denominator);
-            return (fraction1 > fraction2);
-        }
-        bool operator < (const Fraction<T> other) const {
-            T fraction1 = simplify(m_numerator, m_denominator);
-            T fraction2 = simplify(other.m_numerator, other.m_denominator);
-            return (fraction1 < fraction2);
-        }
+        bool operator == (const Fraction<T> other) const {return (this->toFloat() == other.toFloat());}
+        bool operator != (const Fraction<T> other) const {return (this->toFloat() != other.toFloat());}
+        bool operator >= (const Fraction<T> other) const { return (this->toFloat() >= other.toFloat()); }
+        bool operator <= (const Fraction<T> other) const { return (this->toFloat() <= other.toFloat()); }
+        bool operator > (const Fraction<T> other) const { return (this->toFloat() > other.toFloat()); }
+        bool operator < (const Fraction<T> other) const { return (this->toFloat() < other.toFloat()); }
         
         //returns float value of fraction
         float toFloat() {
@@ -116,16 +84,16 @@ namespace mathlib {
             return ostream;
         }
 
-        friend std::istream& operator >> (std::ostream& istream, Fraction<T>& p) {
-            istream >> p.m_numerator;
-            istream >> p.m_denominator;
+        friend std::istream& operator >> (std::ostream& input, Fraction& p) {
+            input >> p.m_numerator;
+            input >> p.m_denominator;
 
             return istream;
         }
 
 	private:
-		T m_numerator = 0;
-		T m_denominator = 0;
+		T m_numerator;
+		T m_denominator;
 	};
 }
 

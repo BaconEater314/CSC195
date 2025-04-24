@@ -31,7 +31,7 @@ int main()
 
     mathlib::Fraction<int> fraction3;
     std::cout << "input fraction (numerator - denominator): \n";
-    //streamIn()
+    //fraction3 = streamIn();
     std::cout << fraction3 << std::endl;
     std::cout << fraction3.toFloat() << std::endl;
 } 
